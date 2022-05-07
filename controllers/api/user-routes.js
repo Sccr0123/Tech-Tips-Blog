@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Post, Comment, Vote } = require("../../models");
+const { User, Post, Comment } = require("../../models");
 
 // get all users
 router.get("/", (req, res) => {
@@ -90,6 +90,7 @@ router.post("/login", (req, res) => {
 		}
 
 		const validPassword = dbUserData.checkPassword(req.body.password);
+		console.log(validPassword);
 
 		if (!validPassword) {
 			res.status(400).json({ message: "Incorrect password!" });
