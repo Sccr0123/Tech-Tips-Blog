@@ -4,6 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Tech Tips Blog</title>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		/>
 		<link rel="stylesheet" href="/stylesheets/style.css" />
 	</head>
 
@@ -11,17 +15,17 @@
 		<div class="wrapper">
 			<header class="col-12">
 				<div>
-					<nav class="col-3 d-flex justify-content-between">
-						<a href="/">Home</a>
+					<nav>
+						<a class="light" href="/">Home</a>
 						{{#if loggedIn}}
-							<a href="/dashboard">Dashboard</a>
-							<a href="/" id="logout">Logout</a>
+							<a class="light" href="/dashboard">Dashboard</a>
+							<a class="light right" href="/" id="logout">Logout</a>
 						{{else}}
-							<a href="/login">Login</a>
+							<a class="light right" href="/login">Login</a>
 						{{/if}}
 					</nav>
 				</div>
-				<h1 class="title"><i class="fab"></i>Tech Tips Blog</h1>
+				<h1 class="title col-2 text-nowrap m-3">Tech Tips Blog</h1>
 			</header>
 			<main>
 				{{{body}}}

@@ -1,14 +1,22 @@
 :root {
 	--primary: #ccdad1;
-	--secondary: #dce9d5;
-	--tertiary: #788585;
-	--light-dark: #a1a0a1;
-	--dark: #201110;
-	text-decoration: none;
+	--secondary: #201110;
 }
 
 * {
 	box-sizing: border-box;
+}
+
+.light {
+	color: var(--primary);
+}
+
+.dark {
+	color: var(--secondary);
+}
+
+.right {
+	float: right;
 }
 
 body {
@@ -16,7 +24,55 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: "IBM Plex Sans", sans-serif;
-	color: var(--dark);
+	color: var(--secondary);
 	line-height: 1.5;
 	font-size: 24px;
+}
+
+header {
+	background-color: var(--secondary);
+	color: var(--primary);
+	padding: 2vh;
+}
+
+header h1 {
+	background-color: var(--primary);
+	margin: 1vh;
+	color: var(--secondary);
+	font-weight: bold;
+	box-shadow: 10px 5px 5px rgb(128, 128, 128);
+	border-radius: 10px;
+}
+
+a a:hover {
+	text-decoration: none;
+}
+
+article {
+	border: rgb(0, 0, 0);
+	border-style: solid;
+	border-width: 5px;
+	margin-top: 2vh;
+}
+
+article span {
+	float: right;
+}
+
+article .title {
+	background-color: var(--secondary);
+	color: var(--primary);
+	padding: 10px;
+	text-decoration: none;
+}
+
+article .title a {
+	background-color: var(--secondary);
+	color: var(--primary);
+	padding: 10px;
+	text-decoration: none;
+}
+
+article .content {
+	padding: 10px;
 }

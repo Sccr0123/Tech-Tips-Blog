@@ -6,8 +6,12 @@ const { Post, User, Comment } = require("../models");
 router.get("/", (req, res) => {
 	console.log("======================");
 	Post.findAll({
-		attributes: ["id", "post_url", "title", "created_at"],
+		attributes: ["id", "post_url", "title", "content", "created_at"],
 		include: [
+			{
+				model: User,
+				attributes: ["username"],
+			},
 			{
 				model: Comment,
 				attributes: [
@@ -21,10 +25,6 @@ router.get("/", (req, res) => {
 					model: User,
 					attributes: ["username"],
 				},
-			},
-			{
-				model: User,
-				attributes: ["username"],
 			},
 		],
 	})
@@ -48,18 +48,7 @@ router.get("/post/:id", (req, res) => {
 		where: {
 			id: req.params.id,
 		},
-		attributes: [
-			"id",
-			"post_url",
-			"title",
-			"created_at",
-			[
-				sequelize.literal(
-					"(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)"
-				),
-				"vote_count",
-			],
-		],
+		attributes: ["id", "post_url", "title", "content", "created_at"],
 		include: [
 			{
 				model: Comment,
@@ -107,6 +96,15 @@ router.get("/login", (req, res) => {
 	}
 
 	res.render("login");
+});
+
+router.get("/signup", (req, res) => {
+	if (req.session.loggedIn) {
+		res.redirect("/");
+		return;
+	}
+
+	res.render("signup");
 });
 
 module.exports = router;
