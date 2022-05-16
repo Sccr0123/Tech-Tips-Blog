@@ -1,4 +1,4 @@
-<html lang="en">
+original: Error: connect ECONNREFUSED 127.0.0.1:3306<html lang="en">
 
 	<head>
 		<meta charset="UTF-8" />
@@ -19,7 +19,11 @@
 						<a class="light" href="/">Home</a>
 						{{#if loggedIn}}
 							<a class="light" href="/dashboard">Dashboard</a>
-							<a class="light right" href="/" id="logout">Logout</a>
+							<a
+								class="light right"
+								href="/"
+								id="logout"
+							>Logout</a>
 						{{else}}
 							<a class="light right" href="/login">Login</a>
 						{{/if}}
